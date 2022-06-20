@@ -31,7 +31,7 @@ def save_text_to_mp3(reddit_obj):
     """
     env = os.getenv("TTS_PROVIDER", "")
     if env in TTSProviders:
-        text_to_mp3 = TTSEngine(env, reddit_obj)
+        text_to_mp3 = TTSEngine(get_case_insensitive_key_value(TTSProviders, env), reddit_obj)
     else:
         chosen = False
         choice = ""
